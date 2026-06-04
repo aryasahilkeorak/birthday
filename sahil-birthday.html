@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It's Sahil Kashyap's Birthday! 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --or: #FF6B35;
+      --ye: #FFD166;
+      --cr: #FFF8E7;
+      --br: #7B5E3A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cr);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #c-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 52px 20px 16px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, #FFD16655 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hey-tag {
+      display: inline-block;
+      background: var(--or);
+      color: #fff;
+      font-family: 'Boogaloo', cursive;
+      font-size: 15px;
+      letter-spacing: 3px;
+      padding: 6px 22px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.07)
+      }
+    }
+
+    .hey-guys {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(32px, 6vw, 58px);
+      color: var(--br);
+      margin-bottom: 6px;
+      animation: fadein .8s ease;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+        transform: translateY(-14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .main-title {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(52px, 11vw, 100px);
+      color: var(--or);
+      line-height: 1;
+      text-shadow: 5px 5px 0 var(--ye), 9px 9px 0 #FF9A3C;
+      animation: wobble 3s ease-in-out infinite;
+    }
+
+    @keyframes wobble {
+
+      0%,
+      100% {
+        transform: rotate(-1.2deg)
+      }
+
+      50% {
+        transform: rotate(1.2deg)
+      }
+    }
+
+    .main-sub {
+      font-family: 'Boogaloo', cursive;
+      font-size: clamp(26px, 5vw, 50px);
+      color: var(--br);
+      margin-top: 6px;
+    }
+
+    .age-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 10px;
+    }
+
+    .age-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--ye);
+      border: 6px solid var(--or);
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 8px #FFD16640, 0 0 24px #FF6B3530
+      }
+
+      50% {
+        box-shadow: 0 0 0 18px #FFD16655, 0 0 48px #FF6B3550
+      }
+    }
+
+    .age-ring span {
+      font-family: 'Boogaloo', cursive;
+      font-size: 68px;
+      color: var(--or);
+      text-shadow: 3px 3px 0 #fff;
+      line-height: 1;
+    }
+
+    .treat-card {
+      background: #fff;
+      border: 3px solid var(--ye);
+      border-radius: 20px;
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 16px;
+      color: var(--br);
+      font-weight: 700;
+      line-height: 1.75;
+      box-shadow: 5px 5px 0 var(--ye);
+      max-width: 540px;
+      margin-top: 16px;
+    }
+
+    .treat-card strong {
+      color: var(--or);
+    }
+
+    .strip {
+      background: var(--or);
+      color: #fff;
+      font-family: 'Boogaloo', cursive;
+      font-size: 18px;
+      letter-spacing: 2px;
+      padding: 11px 0;
+      margin: 28px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .strip-inner {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .sec-title {
+      font-family: 'Boogaloo', cursive;
+      font-size: 30px;
+      color: var(--or);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .food-box {
+      background: #fff;
+      border-radius: 26px;
+      border: 3px dashed var(--ye);
+      padding: 28px 22px;
+      box-shadow: 6px 6px 0 var(--ye);
+      text-align: center;
+    }
+
+    .food-intro {
+      color: var(--br);
+      font-size: 16px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .food-grid {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .food-card {
+      background: var(--cr);
+      border: 2.5px solid var(--ye);
+      border-radius: 22px;
+      padding: 22px 16px;
+      width: 190px;
+      transition: transform .25s, box-shadow .25s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .food-card::after {
+      content: '';
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      width: 70px;
+      height: 70px;
+      background: var(--ye);
+      border-radius: 50%;
+      opacity: .18;
+      transition: transform .3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-8px) rotate(-2deg);
+      box-shadow: 8px 8px 0 var(--ye);
+    }
+
+    .food-card:hover::after {
+      transform: scale(1.6);
+    }
+
+    .fe {
+      font-size: 54px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .food-card h3 {
+      font-family: 'Boogaloo', cursive;
+      font-size: 24px;
+      color: var(--or);
+    }
+
+    .floc {
+      font-size: 12px;
+      color: #bbb;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .fdesc {
+      font-size: 12px;
+      color: var(--br);
+      margin-top: 7px;
+      line-height: 1.45;
+    }
+
+    .ftag {
+      display: inline-block;
+      background: var(--or);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 3px 11px;
+      border-radius: 10px;
+      margin-top: 9px;
+    }
+
+    .wish-form-wrap {
+      background: #fff;
+      border-radius: 22px;
+      border: 2.5px solid var(--ye);
+      padding: 22px;
+      box-shadow: 5px 5px 0 var(--ye);
+      margin-bottom: 22px;
+    }
+
+    .form-hint {
+      color: var(--br);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-hint span {
+      color: var(--or);
+      font-weight: 900;
+    }
+
+    .finput {
+      width: 100%;
+      border: 2px solid var(--ye);
+      border-radius: 13px;
+      padding: 11px 15px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: var(--cr);
+      outline: none;
+      margin-bottom: 10px;
+      transition: border-color .2s;
+    }
+
+    .finput:focus {
+      border-color: var(--or);
+    }
+
+    .finput.err {
+      border-color: #EF476F;
+      animation: shake .4s ease;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      20% {
+        transform: translateX(-7px)
+      }
+
+      40% {
+        transform: translateX(7px)
+      }
+
+      60% {
+        transform: translateX(-4px)
+      }
+
+      80% {
+        transform: translateX(4px)
+      }
+    }
+
+    .wish-btn {
+      background: var(--or);
+      color: #fff;
+      border: none;
+      border-radius: 13px;
+      padding: 11px 0;
+      width: 100%;
+      font-family: 'Boogaloo', cursive;
+      font-size: 21px;
+      cursor: pointer;
+      transition: transform .15s, background .2s;
+    }
+
+    .wish-btn:hover {
+      background: #e55a25;
+      transform: scale(1.02);
+    }
+
+    .wish-btn:active {
+      transform: scale(.97);
+    }
+
+    .wish-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .wall-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .wall-header .sec-title {
+      margin-bottom: 0;
+    }
+
+    .count-pill {
+      background: var(--ye);
+      color: var(--br);
+      font-family: 'Boogaloo', cursive;
+      font-size: 15px;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .wishes-wall {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .wcard {
+      background: #fff;
+      border-radius: 17px;
+      border-left: 6px solid var(--or);
+      padding: 15px 20px;
+      box-shadow: 3px 3px 0 #FFD16645;
+      animation: popin .4s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    @keyframes popin {
+      from {
+        opacity: 0;
+        transform: scale(.87) translateY(10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0)
+      }
+    }
+
+    .wcard .wn {
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--or);
+      margin-bottom: 4px;
+    }
+
+    .wcard .wm {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    .wcard .wt {
+      font-size: 11px;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    .wall-status {
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      padding: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-family: 'Boogaloo', cursive;
+      font-size: 16px;
+      color: var(--br);
+      opacity: .75;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c-canvas"></canvas>
+
+  <div class="hero">
+    <div class="hey-tag">🎊 ATTENTION EVERYONE!</div>
+    <div class="hey-guys">Hey Guys! 👋</div>
+    <div class="main-title">IT'S MY BIRTHDAY!</div>
+    <div class="main-sub">— Sahil Kashyap 🎂 —</div>
+    <div class="age-wrap">
+      <div class="age-ring"><span>25</span></div>
+    </div>
+    <p style="font-family:'Boogaloo',cursive;font-size:20px;color:#7B5E3A;margin-bottom:14px">A quarter century of pure
+      awesomeness 🌟</p>
+    <div class="treat-card">
+      🎁 As a little treat from <strong>me</strong> to all of you —<br>
+      head to the <strong>Pantry</strong> for free snacks &amp; drinks! 🥟🍞🥤
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-inner">
+      🎈 HEY GUYS IT'S MY BIRTHDAY &nbsp;👋 SAHIL KASHYAP IS 25 TODAY &nbsp;🥟 FREE SAMOSAS IN THE PANTRY &nbsp;🍞 BREAD
+      PAKORA TOO &nbsp;🥤 COLD SOFT DRINKS &nbsp;🎂 COME CELEBRATE WITH ME &nbsp;🎁 IT'S SAHIL'S TREAT &nbsp;🎈 HEY GUYS
+      IT'S MY BIRTHDAY &nbsp;👋 SAHIL KASHYAP IS 25 TODAY &nbsp;🥟 FREE SAMOSAS IN THE PANTRY &nbsp;🍞 BREAD PAKORA TOO
+      &nbsp;🥤 COLD SOFT DRINKS &nbsp;🎂 COME CELEBRATE WITH ME &nbsp;🎁 IT'S SAHIL'S TREAT &nbsp;
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">🎁 My Little Treat for You Guys!</div>
+    <div class="food-box">
+      <p class="food-intro">
+        Hey guys, it's <strong>my birthday today</strong> and I wanted to share the joy!<br>
+        Head to the <strong>Pantry</strong> right now — I've got a treat waiting for everyone 🎉
+      </p>
+      <div class="food-grid">
+        <div class="food-card">
+          <span class="fe">🥟</span>
+          <h3>Samosa</h3>
+          <span class="floc">📍 The Pantry</span>
+          <p class="fdesc">Crispy, golden, perfectly spiced. The birthday VIP snack.</p>
+          <span class="ftag">MY TREAT</span>
+        </div>
+        <div class="food-card">
+          <span class="fe">🍞</span>
+          <h3>Bread Pakora</h3>
+          <span class="floc">📍 The Pantry</span>
+          <p class="fdesc">Fluffy, battered, legendary. The samosa's best friend.</p>
+          <span class="ftag">MY TREAT</span>
+        </div>
+        <div class="food-card">
+          <span class="fe">🥤</span>
+          <h3>Soft Drinks</h3>
+          <span class="floc">📍 The Pantry</span>
+          <p class="fdesc">Ice cold and fizzy. Because samosas without a drink? Never.</p>
+          <span class="ftag">MY TREAT</span>
+        </div>
+      </div>
+      <p style="margin-top:18px;font-size:13px;color:#ccc">⚠️ Warning: Side effects include extreme happiness &amp;
+        definitely coming back for seconds</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wall-header">
+      <div class="sec-title">💌 Wish Me Happy Birthday!</div>
+      <div class="count-pill" id="count-pill">...</div>
+    </div>
+    <div class="wish-form-wrap">
+      <p class="form-hint">Your wish is <span>saved for everyone to see</span> — even people who visit later! 🎊</p>
+      <input class="finput" id="inp-name" type="text" placeholder="Your name 😊" maxlength="40" autocomplete="off" />
+      <input class="finput" id="inp-msg" type="text" placeholder="Write your birthday wish for Sahil... 🎂"
+        maxlength="200" autocomplete="off" />
+      <button class="wish-btn" id="wish-btn" onclick="postWish()">Post Wish 🎉</button>
+    </div>
+    <div class="wishes-wall" id="wall">
+      <div class="wall-status" id="wall-status">Loading wishes... 🎈</div>
+    </div>
+  </div>
+
+  <footer>Made with ❤️ by Sahil Kashyap</footer>
+
+  <script>
+    /* ─────────────────────────────────────────
+       JSONBin.io — free, no sign-up needed to read.
+       HOW TO SET UP (takes 2 min, totally free):
+       1. Go to https://jsonbin.io and sign up free
+       2. Click "Create Bin" → paste: {"wishes":[]}  → Save
+       3. Copy the Bin ID from the URL  e.g. 664abc123...
+       4. Go to API Keys → create a key, copy it
+       5. Paste both below
+    ───────────────────────────────────────── */
+    const BIN_ID = "6a214209f5f4af5e29b6f9ce";   // e.g. "6650abc1ad719877540abcde"
+    const API_KEY = "$2a$10$ylqK7mafCvBnMtItXkVjDuDQrf2cd5WjZSkJ2VgBUiuYPMYsMEZY.";  // e.g. "$2a$10$abc..."
+    const BASE = "https://api.jsonbin.io/v3/b/" + BIN_ID;
+
+    const EMOJIS = ['🎉', '🎊', '🥳', '🎂', '🌟', '💫', '🎈', '❤️', '🥟', '🍞', '✨', '🎁', '🍾', '👑', '🔥'];
+    const rndE = () => EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const ago = ts => {
+      const d = Date.now() - ts;
+      if (d < 60000) return 'Just now';
+      if (d < 3600000) return Math.floor(d / 60000) + ' min ago';
+      if (d < 86400000) return Math.floor(d / 3600000) + ' hr ago';
+      return new Date(ts).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+    };
+
+    function headers(write) {
+      const h = { 'Content-Type': 'application/json', 'X-Master-Key': API_KEY };
+      if (!write) h['X-Bin-Meta'] = 'false';
+      return h;
+    }
+
+    async function loadWishes() {
+      const wall = document.getElementById('wall');
+      const status = document.getElementById('wall-status');
+      const pill = document.getElementById('count-pill');
+      try {
+        const res = await fetch(BASE + '/latest', { headers: headers(false) });
+        const data = await res.json();
+        const list = (data.wishes || []).slice().reverse();
+        pill.textContent = list.length + (list.length === 1 ? ' wish' : ' wishes');
+        wall.innerHTML = '';
+        if (!list.length) {
+          wall.innerHTML = '<div class="wall-status">No wishes yet — be the first! 🎈</div>';
+          return;
+        }
+        list.forEach(w => wall.appendChild(makeCard(w)));
+      } catch (e) {
+        if (status) status.textContent = '⚠️ Could not load wishes. Check your Bin ID & API Key.';
+      }
+    }
+
+    function makeCard(w) {
+      const d = document.createElement('div');
+      d.className = 'wcard';
+      d.innerHTML = `<div class="wn">${w.emoji || '🎉'} ${esc(w.name)}</div><div class="wm">${esc(w.msg)}</div><div class="wt">${ago(w.ts)}</div>`;
+      return d;
+    }
+
+    async function postWish() {
+      const nameEl = document.getElementById('inp-name');
+      const msgEl = document.getElementById('inp-msg');
+      const btn = document.getElementById('wish-btn');
+      const name = nameEl.value.trim();
+      const msg = msgEl.value.trim();
+      if (!name) { nameEl.classList.add('err'); setTimeout(() => nameEl.classList.remove('err'), 500); nameEl.focus(); return; }
+      if (!msg) { msgEl.classList.add('err'); setTimeout(() => msgEl.classList.remove('err'), 500); msgEl.focus(); return; }
+
+      btn.disabled = true; btn.textContent = 'Saving... ✨';
+
+      try {
+        // 1. Read current wishes
+        const getRes = await fetch(BASE + '/latest', { headers: headers(false) });
+        const current = await getRes.json();
+        const wishes = current.wishes || [];
+
+        // 2. Append new wish
+        const newWish = { name, msg, emoji: rndE(), ts: Date.now() };
+        wishes.push(newWish);
+
+        // 3. Write back
+        const putRes = await fetch(BASE, {
+          method: 'PUT',
+          headers: headers(true),
+          body: JSON.stringify({ wishes })
+        });
+
+        if (!putRes.ok) throw new Error('Save failed: ' + putRes.status);
+
+        nameEl.value = ''; msgEl.value = '';
+        // Prepend to wall immediately
+        const wall = document.getElementById('wall');
+        if (wall.querySelector('.wall-status')) wall.innerHTML = '';
+        wall.insertBefore(makeCard(newWish), wall.firstChild);
+        const pill = document.getElementById('count-pill');
+        const cur = parseInt(pill.textContent) || 0;
+        pill.textContent = (cur + 1) + ((cur + 1) === 1 ? ' wish' : ' wishes');
+        burst();
+      } catch (e) {
+        alert('Could not save wish!\n\nMake sure you replaced YOUR_BIN_ID and YOUR_API_KEY in the script.\n\n' + e.message);
+      }
+
+      btn.disabled = false; btn.textContent = 'Post Wish 🎉';
+    }
+
+    document.getElementById('inp-msg').addEventListener('keydown', e => { if (e.key === 'Enter') postWish(); });
+    loadWishes();
+
+    /* ── CONFETTI ── */
+    const cv = document.getElementById('c-canvas');
+    const cx = cv.getContext('2d');
+    cv.width = window.innerWidth; cv.height = window.innerHeight;
+    window.addEventListener('resize', () => { cv.width = window.innerWidth; cv.height = window.innerHeight; });
+    const COLS = ['#FF6B35', '#FFD166', '#06D6A0', '#EF476F', '#118AB2', '#FF9A3C', '#ffffff'];
+    const rndC = () => COLS[Math.floor(Math.random() * COLS.length)];
+
+    class Flake {
+      constructor(x) {
+        this.x = x !== undefined ? x : Math.random() * cv.width;
+        this.y = -12; this.sz = Math.random() * 9 + 5; this.col = rndC();
+        this.sp = Math.random() * 2.5 + 1.5; this.dr = (Math.random() - .5) * 1.5;
+        this.ang = Math.random() * Math.PI * 2; this.spin = (Math.random() - .5) * .18;
+        this.type = Math.floor(Math.random() * 3); this.alpha = 1; this.fade = Math.random() * .004 + .0015;
+      }
+      update() { this.y += this.sp; this.x += this.dr + Math.sin(this.y / 38) * .5; this.ang += this.spin; if (this.y > cv.height * .72) this.alpha -= this.fade; }
+      draw() {
+        cx.save(); cx.globalAlpha = Math.max(0, this.alpha); cx.translate(this.x, this.y); cx.rotate(this.ang); cx.fillStyle = this.col;
+        if (this.type === 0) { cx.fillRect(-this.sz / 2, -this.sz / 2, this.sz, this.sz * .58); }
+        else if (this.type === 1) { cx.beginPath(); cx.arc(0, 0, this.sz / 2, 0, Math.PI * 2); cx.fill(); }
+        else { cx.beginPath(); cx.moveTo(0, -this.sz / 2); cx.lineTo(this.sz / 2, this.sz / 2); cx.lineTo(-this.sz / 2, this.sz / 2); cx.closePath(); cx.fill(); }
+        cx.restore();
+      }
+      dead() { return this.alpha <= 0 || this.y > cv.height + 20; }
+    }
+
+    let flakes = [];
+    for (let i = 0; i < 100; i++) { const f = new Flake(); f.y = Math.random() * cv.height * .55; flakes.push(f); }
+    let tick = 0;
+    (function loop() { cx.clearRect(0, 0, cv.width, cv.height); tick++; if (tick % 4 === 0 && flakes.length < 180) flakes.push(new Flake()); flakes = flakes.filter(f => !f.dead()); flakes.forEach(f => { f.update(); f.draw(); }); requestAnimationFrame(loop); })();
+    function burst() { for (let i = 0; i < 35; i++) { const f = new Flake(cv.width * (.35 + Math.random() * .3)); f.sp = Math.random() * 3.5 + 2; f.dr = (Math.random() - .5) * 5; flakes.push(f); } }
+  </script>
+</body>
+
+</html>
